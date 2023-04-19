@@ -1,5 +1,3 @@
-
-
 d3.json('./static/data/samples.json').then(({ names }) => {
 
     names.forEach(id => {
@@ -36,7 +34,30 @@ const optionChanged = () => {
           ];
           
           Plotly.newPlot('bar', data);
+
+        var bubbles = [
+            {
+                x: otu_ids,
+                y: sample_values,
+                mode: 'markers',
+                marker: {
+                    color: otu_ids,
+                    size: sample_values,
+                    colorscale: 'Viridis'
+                },
+                text: otu_labels
+            }
+        ];
+
+        var layout = {
+            title: `Sample Values vs. OTU IDs for Sample ${choice}`,
+            xaxis: { title: 'OTU IDs' },
+            yaxis: { title: 'Sample Values' }
+        };
+
+        Plotly.newPlot('bubble', bubbles, layout);
         
+
         
         
     });
