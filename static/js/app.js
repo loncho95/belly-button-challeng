@@ -56,7 +56,75 @@ const optionChanged = () => {
         };
 
         Plotly.newPlot('bubble', bubbles, layout);
+
+        let age = meta.age;
+
+            var dataGauge = [
+            {
+                domain: { x: [0, 1], y: [0, 1] },
+                value: age,
+                title: { text: "Age" },
+                type: "indicator",
+                mode: "gauge+number",
+                gauge: {
+                axis: { range: [null, 100] },
+                steps: [
+                    { range: [0, 25], color: "lightgray" },
+                    { range: [25, 50], color: "gray" },
+                    { range: [50, 75], color: "darkgray" },
+                    { range: [75, 100], color: "black" }
+                ],
+                threshold: {
+                    line: { color: "red", width: 4 },
+                    thickness: 0.75,
+                    value: age
+                }
+                }
+            }
+            ];
+
+            var layoutGauge = { width: 600, height: 450, margin: { t: 0, b: 0 } };
+            Plotly.newPlot('gauge', dataGauge, layoutGauge);
         
+
+//             let wfreq = meta.wfreq;
+
+// var dataGauge2 = [
+//   {
+//     domain: { x: [0, 1], y: [0, 1] },
+//     value: wfreq,
+//     title: { text: "Weekly Washing Frequency" },
+//     type: "indicator",
+//     mode: "gauge+number",
+//     gauge: {
+//       axis: { range: [null, 9], tickmode: 'array', tickvals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
+//       steps: [
+//         { range: [0, 1], color: "lightgray" },
+//         { range: [1, 2], color: "gray" },
+//         { range: [2, 3], color: "lightgray" },
+//         { range: [3, 4], color: "gray" },
+//         { range: [4, 5], color: "lightgray" },
+//         { range: [5, 6], color: "gray" },
+//         { range: [6, 7], color: "lightgray" },
+//         { range: [7, 8], color: "gray" },
+//         { range: [8, 9], color: "lightgray" }
+//       ],
+//       threshold: {
+//         line: { color: "red", width: 4 },
+//         thickness: 0.75,
+//         value: wfreq
+//       }
+//     }
+//   }
+// ];
+
+// var layoutGauge2 = { width: 600, height: 450, margin: { t: 0, b: 0 } };
+// Plotly.newPlot('gauge2', dataGauge2, layoutGauge2);
+        
+
+
+
+
 
         
         
